@@ -5,6 +5,6 @@ The user page is a personal home: the 👤 title icon, the live Start/Stop timer
 entry's Tt user value, so each user sees only their own entries.
 [[Category:Time tracker templates]]
 </noinclude><includeonly>{{#titleicon_unicode:👤}}{{#timetracker_timer:}}
-== Recent time ==
-{{#timetracker_timetable:user|{{PAGENAME}}}}
+== This week ==
+{{#timetracker_grid:user|{{PAGENAME}}}}
 </includeonly>

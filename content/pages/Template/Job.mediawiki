@@ -19,8 +19,8 @@ can be renamed without moving pages, and two customers may reuse a job name. The
 </div>{{#timetracker_jobtimer:{{FULLPAGENAME}}}}</div>
 <h2 class="tt-section">📋 Tasks</h2>
 <div class="tt-jobs-row">{{#timetracker_tile:newtask|{{FULLPAGENAME}}}}{{#timetracker_tasks:{{FULLPAGENAME}}}}</div>
-<h2 class="tt-section">⏱️ Time entries</h2>
-{{#timetracker_timetable:job|{{FULLPAGENAME}}}}
+<h2 class="tt-section">⏱️ This week</h2>
+{{#timetracker_grid:job|{{FULLPAGENAME}}}}
 {{#timetracker_progress:{{FULLPAGENAME}}|{{{estimate|}}}}}
 [[Category:Jobs]]
 </includeonly>

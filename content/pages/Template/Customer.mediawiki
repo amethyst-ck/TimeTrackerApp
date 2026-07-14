@@ -14,8 +14,7 @@ moving the page.
 </div>
 <h2 class="tt-section">📁 Jobs</h2>
 <div class="tt-jobs-row">{{#timetracker_tile:newjob|{{FULLPAGENAME}}}}{{#timetracker_jobs:{{FULLPAGENAME}}}}</div>
-<h2 class="tt-section">⏱️ Recent time</h2>
-{{#timetracker_timetable:customer|{{FULLPAGENAME}}}}
-<div class="tt-total">Total logged<span class="tt-total-value">{{#timetracker_total:customer|{{FULLPAGENAME}}}}</span></div>
+<h2 class="tt-section">⏱️ This week</h2>
+{{#timetracker_grid:customer|{{FULLPAGENAME}}}}
 [[Category:Customers]]
 </includeonly>
