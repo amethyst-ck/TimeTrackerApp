@@ -1,0 +1,26 @@
+<noinclude>{{#titleicon_unicode:📁}}
+This is the '''Job''' form, used to create and edit job records stored via [[Template:Job]]
+[[Category:Time tracker forms]]
+</noinclude><includeonly>{{{info|page name=Job:<unique number;random;9>}}}
+{{{for template|Job}}}
+{| class="formtable"
+|-
+! Customer:
+| {{{field|customer|hidden}}}<span class="tt-locked-value">{{#if:{{#urlget:Job[customer]}}|{{#getdisplaytitle:{{#replace:{{#urlget:Job[customer]}}|%3A|:}}}}|{{#getdisplaytitle:{{#show:{{FULLPAGENAME}}|?Tt customer|link=none}}}}}}</span>
+|-
+! Name:
+| {{{field|name|mandatory|size=40}}}
+|-
+! Status:
+| {{{field|status|input type=dropdown|values=active,archived|default=active|mandatory}}}
+|-
+! Estimate (hours):
+| {{{field|estimate|input type=number|min=0|step=any|size=10}}} <small>(optional)</small>
+|-
+! Description:
+| {{{field|description|input type=textarea|rows=4}}}
+|}
+{{{end template}}}
+
+{{{standard input|save}}} {{{standard input|cancel}}}
+</includeonly>

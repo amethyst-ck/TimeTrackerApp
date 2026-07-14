@@ -1,0 +1,5 @@
+{{#titleicon_unicode:📁}}Job records, each stored via [[Template:Job]] and created through
+[[Form:Job]]. Time is logged against [[:Category:Tasks|tasks]] that are assigned
+to a job or against the job's "General" bucket; each job belongs to a
+[[:Category:Customers|customer]].
+[[Category:Time tracker]]

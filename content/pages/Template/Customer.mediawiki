@@ -1,0 +1,21 @@
+<noinclude>
+Stores a customer as SMW properties (Tt name/contact/notes). Created and edited via [[Form:Customer]]. The page title
+is a stable random id; the name is a field (shown via <code>DISPLAYTITLE</code>), so a customer can be renamed without
+moving the page.
+[[Category:Time tracker templates]]
+</noinclude><includeonly>{{#default_form:Customer}}{{#set:
+|Tt name={{{name|}}}
+|Tt contact={{{contact|}}}
+|Tt notes={{{notes|}}}
+}}{{DISPLAYTITLE:{{{name|{{PAGENAME}}}}}}}<div class="tt-card tt-entity">
+<div class="tt-facts">
+{{#if:{{{contact|}}}|<div class="tt-fact"><span class="tt-fact-label">Contact</span><span class="tt-fact-value">{{{contact}}}</span></div>|}}
+</div>{{#if:{{{notes|}}}|<div class="tt-desc">{{{notes}}}</div>|}}
+</div>
+<h2 class="tt-section">📁 Jobs</h2>
+<div class="tt-jobs-row">{{#timetracker_tile:newjob|{{FULLPAGENAME}}}}{{#timetracker_jobs:{{FULLPAGENAME}}}}</div>
+<h2 class="tt-section">⏱️ Recent time</h2>
+{{#timetracker_timetable:customer|{{FULLPAGENAME}}}}
+<div class="tt-total">Total logged<span class="tt-total-value">{{#timetracker_total:customer|{{FULLPAGENAME}}}}</span></div>
+[[Category:Customers]]
+</includeonly>

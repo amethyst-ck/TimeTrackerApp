@@ -1,0 +1,21 @@
+<noinclude>
+Stores a task as SMW properties (Tt name/job/status). Created and edited via [[Form:Task]]. A task belongs to a job
+(<code>job</code> holds the job's page id); the name is shown via <code>DISPLAYTITLE</code>. Time is logged against a
+task from the timer or [[Special:EditTime]], or against the job's "General" bucket.
+[[Category:Time tracker templates]]
+</noinclude><includeonly>{{#default_form:Task}}{{#set:
+|Tt name={{{name|}}}
+|Tt job={{{job|}}}
+|Tt status={{{status|active}}}
+}}{{DISPLAYTITLE:{{{name|{{PAGENAME}}}}}}}<div class="tt-header-row"><div class="tt-card tt-entity">
+<div class="tt-facts">
+<div class="tt-fact"><span class="tt-fact-label">Customer</span><span class="tt-fact-value">{{#timetracker_job_customer:{{{job|}}}}}</span></div>
+<div class="tt-fact"><span class="tt-fact-label">Job</span><span class="tt-fact-value">{{#if:{{{job|}}}|[[{{{job}}}]]|—}}</span></div>
+<div class="tt-fact"><span class="tt-fact-label">Status</span><span class="tt-fact-value"><span class="tt-badge tt-badge-{{lc:{{{status|active}}}}}">{{int:timetracker-status-{{lc:{{{status|active}}}}}}}</span></span></div>
+</div>
+</div>{{#timetracker_jobtimer:{{{job|}}}|{{FULLPAGENAME}}}}</div>
+<h2 class="tt-section">⏱️ Time entries</h2>
+{{#timetracker_timetable:task|{{FULLPAGENAME}}}}
+<div class="tt-total">Total logged<span class="tt-total-value">{{#timetracker_total:task|{{FULLPAGENAME}}}}</span></div>
+[[Category:Tasks]]
+</includeonly>

@@ -1,0 +1,3 @@
+{{#titleicon_unicode:🏢}}Customer records, each stored via [[Template:Customer]] and created
+through [[Form:Customer]]. Every [[:Category:Jobs|job]] may be assigned to one of these customers.
+[[Category:Time tracker]]

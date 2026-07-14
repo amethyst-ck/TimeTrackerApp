@@ -1,0 +1,5 @@
+{{#titleicon_unicode:⏱️}}One entry per day of work on a job (the day's running total),
+each stored via [[Template:Time entry]]. Entries accumulate from the Start/Stop stopwatch at
+[[Special:TimeTracker]] and are corrected on [[Special:EditTime]]. See
+[[Special:TimeReports|Time reports]] for the filterable timesheet.
+[[Category:Time tracker]]

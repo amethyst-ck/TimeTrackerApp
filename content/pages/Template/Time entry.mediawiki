@@ -1,0 +1,26 @@
+<noinclude>
+Stores one day's tracked time as SMW properties (Tt day/customer/job/task/user/duration/notes): the running total
+(decimal hours) a user worked on a job on a day. <code>customer</code> and <code>job</code> hold page ids; names
+resolve at display time via DisplayTitle. One entry per customer/job/task/user/day — the stopwatch
+([[Special:TimeTracker]]) and [[Special:EditTime]] accumulate into it. Written by the extension, not by hand.
+[[Category:Time tracker templates]]
+</noinclude><includeonly>{{#set:
+|Tt day={{{day|}}}
+|Tt customer={{{customer|}}}
+|Tt job={{{job|}}}
+|Tt task={{{task|}}}
+|Tt user={{{user|}}}
+|Tt duration={{{duration|}}}
+|Tt notes={{{notes|}}}
+}}{{DISPLAYTITLE:{{{day|}}}{{#if:{{{job|}}}| — {{#getdisplaytitle:{{{job}}}}}|}}}}<div class="tt-card tt-entity">
+<div class="tt-facts">
+<div class="tt-fact"><span class="tt-fact-label">Day</span><span class="tt-fact-value">{{{day|—}}}</span></div>
+<div class="tt-fact"><span class="tt-fact-label">Duration</span><span class="tt-fact-value">{{#timetracker_format_duration:{{{duration|0}}}}}</span></div>
+<div class="tt-fact"><span class="tt-fact-label">Customer</span><span class="tt-fact-value">{{#if:{{{customer|}}}|[[{{{customer}}}]]|—}}</span></div>
+<div class="tt-fact"><span class="tt-fact-label">Job</span><span class="tt-fact-value">{{#if:{{{job|}}}|[[{{{job}}}]]|—}}</span></div>
+{{#if:{{{task|}}}|<div class="tt-fact"><span class="tt-fact-label">Task</span><span class="tt-fact-value">[[{{{task}}}]]</span></div>|}}
+<div class="tt-fact"><span class="tt-fact-label">User</span><span class="tt-fact-value">{{{user|—}}}</span></div>
+</div>{{#if:{{{notes|}}}|<div class="tt-desc">{{{notes}}}</div>|}}
+</div>
+[[Category:Time entries]]
+</includeonly>

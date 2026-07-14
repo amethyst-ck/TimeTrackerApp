@@ -1,0 +1,2 @@
+Semantic MediaWiki properties that hold the time tracker's data.
+[[Category:Time tracker]]

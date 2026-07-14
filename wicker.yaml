@@ -1,0 +1,92 @@
+# Wicker application manifest for TimeTracker.
+# Deploy with: wicker deploy . -i timetracker -n localhost
+apiVersion: wicker-app/v1
+name: time-tracker
+version: 1.0.0
+description: Track time on jobs and customers as a Canasta-based wiki application
+author: Cindy Cicalese
+license: GPL-2.0-or-later
+
+requires:
+  canasta: ">=3.5"
+
+# The wikis in this instance (required). The first (and only) entry is the
+# primary wiki; its id names the instance. The domain is not set here — it is
+# passed at deploy time via `-n/--domain-name` (e.g. `-n localhost`).
+wikis:
+  - id: main
+    siteName: Time Tracker
+
+# Bundled extensions (name only) are loaded by the settings fragment below;
+# the custom TimeTracker extension (source) is installed by Wicker from this
+# app's extensions/ directory.
+extensions:
+  - name: SemanticMediaWiki
+  - name: CreateUserPage
+  - name: DisplayTitle
+  - name: PageForms
+  - name: ParserFunctions
+  - name: UrlGetParameters
+  - name: TitleIcon
+  - name: TimeTracker
+    git: https://github.com/amethyst-ck/TimeTracker
+    ref: v1.0.0
+
+settings:
+  - path: ./settings/Settings.php
+    install: config/settings/global/Settings.php
+
+# Static assets copied into the instance's public_assets/ (served under the web
+# docroot). Per-wiki files live under public_assets/<wiki>/ — here the logo +
+# favicon for the 'main' wiki, referenced by $wgLogos/$wgFavicon in Settings.php.
+publicAssets: ./public_assets
+
+content:
+  # Each page's file path mirrors its title under content/pages/ (the
+  # namespace is a directory): Template:Customer -> Template/Customer.mediawiki.
+  pages:
+    dir: ./content/pages
+    list:
+      - Property:Tt name
+      - Property:Tt contact
+      - Property:Tt notes
+      - Property:Tt status
+      - Property:Tt description
+      - Property:Tt user
+      - Property:Tt customer
+      - Property:Tt job
+      - Property:Tt task
+      - Property:Tt day
+      - Property:Tt duration
+      - Property:Tt estimate
+      - Template:Customer
+      - Template:Job
+      - Template:Task
+      - Template:Time entry
+      - Template:Running timer
+      - Template:Dashboard
+      - Template:User
+      - Form:Customer
+      - Form:Job
+      - Form:Task
+      - Customers
+      - Main Page
+      - MediaWiki:Common.css
+      - MediaWiki:Pf formedit edittitle
+      - Category:Customers
+      - Category:Jobs
+      - Category:Tasks
+      - Category:Time entries
+      - Category:Time tracker properties
+      - Category:Time tracker templates
+      - Category:Time tracker forms
+      - Category:Time tracker
+  postInstall:
+    # Content is imported after the restart that enabled SMW (update.php ran
+    # then, creating the store's tables), so annotations are stored live. This
+    # rebuild is belt-and-suspenders: it reprocesses every page so the property
+    # types on the imported Property: pages are indexed before real data lands.
+    - kind: maintenance
+      extension: SemanticMediaWiki
+      script: rebuildData.php
+      args: ["-v"]

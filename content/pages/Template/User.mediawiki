@@ -1,0 +1,10 @@
+<noinclude>
+The user page is a personal home: the 👤 title icon, the live Start/Stop timer (the viewer's own —
+{{#timetracker_timer:}} renders it inline and posts back here), and a table of this user's recent time
+(resolving customer/job ids to linked names via the SMW store). {{PAGENAME}} is the user name, which is the
+entry's Tt user value, so each user sees only their own entries.
+[[Category:Time tracker templates]]
+</noinclude><includeonly>{{#titleicon_unicode:👤}}{{#timetracker_timer:}}
+== Recent time ==
+{{#timetracker_timetable:user|{{PAGENAME}}}}
+</includeonly>

@@ -1,0 +1,8 @@
+<noinclude>
+Holds the state of a user's currently-running Start/Stop timer (customer, job, task, start time, timezone). The
+TimeTracker extension writes one of these at <code>User:&lt;user&gt;/TimeTracker/running</code> when a timer starts
+and reads it back on stop; it is transient state, not a stored time entry, and is not edited by hand.
+<code>customer</code> and <code>job</code> are page ids; their names are shown via DisplayTitle. When the timer stops
+the page is blanked.
+[[Category:Time tracker templates]]
+</noinclude><includeonly><div class="tt-entity">⏱️ A timer is running{{#if:{{{job|}}}| on '''[[{{{job}}}]]'''|}} since {{{start|}}} ({{{timezone|}}}). Manage it at [[Special:TimeTracker]].</div></includeonly>
