@@ -1,0 +1,21 @@
+<noinclude>{{#titleicon_unicode:🏢}}
+This is the '''Customer''' form, used to create and edit customer records stored via
+[[Template:Customer]].
+[[Category:Time tracker forms]]
+</noinclude><includeonly>{{{info|page name=Customer:<unique number;random;9>}}}
+{{{for template|Customer}}}
+{| class="formtable"
+|-
+! Name:
+| {{{field|name|mandatory|size=40}}}
+|-
+! Contact:
+| {{{field|contact|size=40}}} <small>(email, phone, or a note)</small>
+|-
+! Notes:
+| {{{field|notes|input type=textarea|rows=4}}}
+|}
+{{{end template}}}
+
+{{{standard input|save}}} {{{standard input|cancel}}}
+</includeonly>

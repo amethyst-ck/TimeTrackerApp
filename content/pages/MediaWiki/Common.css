@@ -1,0 +1,268 @@
+/* ============================================================
+   Time Tracker — content-layer styles (customizable).
+
+   The design TOKENS (--tt-* custom properties) and the base .tt-card look are
+   shipped by the TimeTracker extension (ext.timetracker.base, loaded site-wide)
+   so the custom special pages can't be broken by edits here. This page holds
+   only the styling of wiki CONTENT — entity templates, result tables, and
+   PageForms fields — which is meant to be tweakable. It relies on the --tt-*
+   tokens from the extension.
+   ============================================================ */
+
+/* ---- Section headings inside our pages ---- */
+.tt-section {
+	font-family: sans-serif;
+	font-size: 1.1em;
+	font-weight: 700;
+	letter-spacing: 0.01em;
+	color: var(--tt-ink);
+	margin: 1.6em 0 0.6em;
+	padding-bottom: 0.3em;
+	border-bottom: 2px solid var(--tt-border);
+}
+
+.tt-section::before {
+	content: '';
+	display: inline-block;
+	width: 0.55em;
+	height: 0.55em;
+	margin-right: 0.5em;
+	border-radius: 2px;
+	background: var(--tt-accent);
+	vertical-align: baseline;
+}
+
+/* ---- Entity "facts" grid (customer / job / entry meta) ---- */
+.tt-facts {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.9em 2.4em;
+}
+
+.tt-fact {
+	display: flex;
+	flex-direction: column;
+	gap: 0.15em;
+}
+
+.tt-fact-label {
+	font-family: sans-serif;
+	font-size: 0.7em;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--tt-muted);
+}
+
+.tt-fact-value {
+	font-size: 1.08em;
+	line-height: 1.3;
+}
+
+.tt-desc {
+	margin-top: 0.9em;
+	padding-top: 0.9em;
+	border-top: 1px solid var(--tt-border);
+	color: var(--tt-ink);
+}
+
+/* ---- Status badge ---- */
+.tt-badge {
+	display: inline-block;
+	padding: 0.12em 0.7em;
+	border-radius: 999px;
+	font-family: sans-serif;
+	font-size: 0.82em;
+	font-weight: 600;
+	line-height: 1.5;
+}
+
+.tt-badge-active {
+	background: var(--tt-accent-soft);
+	color: var(--tt-accent-dark);
+}
+
+.tt-badge-archived {
+	background: #eceff1;
+	color: #6b7378;
+}
+
+/* ---- "Total logged" callout ---- */
+.tt-total {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 0.5em;
+	margin: 0.9em 0;
+	padding: 0.45em 0.9em;
+	background: var(--tt-accent-soft);
+	border-radius: 999px;
+	font-family: sans-serif;
+	font-size: 0.9em;
+	font-weight: 600;
+	color: var(--tt-accent-dark);
+}
+
+.tt-total-value {
+	font-size: 1.15em;
+}
+
+/* ---- Estimate progress bar (job page) ---- */
+.tt-progress {
+	display: flex;
+	align-items: center;
+	gap: 0.7em;
+	flex-wrap: wrap;
+	margin: 0.9em 0;
+	font-family: sans-serif;
+	font-size: 0.9em;
+	font-weight: 600;
+	color: var(--tt-accent-dark);
+}
+
+.tt-bar {
+	flex: 1 1 12em;
+	max-width: 22em;
+	height: 0.7em;
+	background: var(--tt-accent-soft);
+	border-radius: 999px;
+	overflow: hidden;
+}
+
+.tt-bar-fill {
+	height: 100%;
+	background: var(--tt-accent);
+	border-radius: 999px;
+}
+
+/* Over the estimate — turn the fill amber. */
+.tt-bar-fill.tt-bar-over {
+	background: #d98324;
+}
+
+/* ---- Result tables (Customers/Jobs/Tasks/time listings) ---- */
+/* The bordered/rounded box lives on the wrapper (like the report timesheet's
+   .tt-ts-wrap); it shrinks to the table so a few short rows still read as one
+   contained card, and scrolls horizontally on narrow screens. */
+.tt-table-scroll {
+	display: block;
+	width: fit-content;
+	max-width: 100%;
+	overflow-x: auto;
+	margin: 0.6em 0 1em;
+	border: 1px solid var(--tt-border);
+	border-radius: var(--tt-radius);
+	box-shadow: var(--tt-shadow);
+}
+
+.tt-table {
+	border-collapse: collapse;
+	width: auto;
+	margin: 0;
+	background: #fff;
+	font-size: 0.95em;
+}
+
+/* Entity facts box + timer side by side on desktop; wraps (timer below the
+   facts box) on narrow screens. */
+.tt-header-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+	align-items: flex-start;
+}
+
+.tt-header-row > .tt-card {
+	margin: 0.6em 0;
+}
+
+.tt-header-row > .tt-entity {
+	flex: 0 1 auto;
+}
+
+.tt-header-row > .tt-card:not( .tt-entity ) {
+	flex: 1 1 22em;
+}
+
+/* Jobs table + New-job tile side by side on a customer page; wraps to
+   stacked on narrow screens. */
+.tt-jobs-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+	align-items: flex-start;
+}
+
+/* Align the New button's top with the table beside it (the table wrapper
+   otherwise has a top margin that drops it below the button). */
+.tt-jobs-row .tt-table-scroll {
+	margin-top: 0;
+}
+
+.tt-table > * > tr > th,
+.tt-table > * > tr > td {
+	padding: 0.55em 0.9em;
+	border: 0;
+	border-bottom: 1px solid var(--tt-border);
+	text-align: left;
+	vertical-align: top;
+}
+
+.tt-table > * > tr > th {
+	background: var(--tt-soft-bg);
+	font-family: sans-serif;
+	font-weight: 700;
+	font-size: 0.9em;
+	color: var(--tt-muted);
+	white-space: nowrap;
+}
+
+/* Duration column right-aligned + pencil-edit column centered, overriding the
+   table's left-align default so the wiki time tables match Special:TimeReports. */
+.tt-table > * > tr > th.tt-num,
+.tt-table > * > tr > td.tt-num {
+	text-align: right;
+}
+
+.tt-table > * > tr > td.tt-edit {
+	text-align: center;
+}
+
+.tt-table > tbody > tr:last-child > td {
+	border-bottom: 0;
+}
+
+.tt-table > tbody > tr:hover > td {
+	background: var(--tt-hover);
+}
+
+/* ---- PageForms field widths: keep every field the same width ---- */
+.formtable input[ type='text' ],
+.formtable textarea {
+	width: 24em;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+.formtable input.pfComboBox,
+.formtable .select2-container {
+	width: 24em !important;
+	max-width: 100%;
+}
+
+/* Align each row's label with the top of its field. PageForms puts the field
+   cell at vertical-align: top, but the label th defaults to middle, so next to
+   a taller control (combobox, textarea, or the read-only value) the label
+   floats out of line. */
+.formtable th {
+	vertical-align: top;
+	padding-top: 6px;
+}
+
+/* A parent field (customer on a job, job on a task) fixed by the page it was
+   created from: shown read-only as plain text instead of an editable field,
+   with the same top offset as a text input so it lines up with its label. */
+.formtable .tt-locked-value {
+	display: inline-block;
+	padding-top: 6px;
+	font-weight: 600;
+}

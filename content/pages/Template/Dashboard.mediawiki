@@ -1,0 +1,11 @@
+<noinclude>
+A launcher-tile grid for the time tracker. Drop it on any page (the wiki's Main Page is the natural home):
+
+  {{Dashboard}}
+
+The tiles are rendered by the {{#timetracker_dashboard:}} parser function (raw HTML, because MediaWiki's wikitext
+sanitizer strips the <code><nowiki><a></nowiki></code> tags a fully-clickable tile needs). That parser function also
+loads the tile styling (the <code>ext.timetracker.dashboard</code> module shipped by the extension), so this template
+is just the call.
+[[Category:Time tracker templates]]
+</noinclude><includeonly>{{#timetracker_dashboard:}}</includeonly>

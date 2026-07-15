@@ -1,0 +1,2 @@
+A TimeTracker data property of type [[Has type::Text]].
+[[Category:Time tracker properties]]

@@ -1,0 +1,26 @@
+<noinclude>
+Stores a job as SMW properties (Tt name/customer/description/status/estimate). Created and edited via [[Form:Job]]. The
+page title is a stable random id and <code>customer</code> stores the customer's page id, so a job (or its customer)
+can be renamed without moving pages, and two customers may reuse a job name. The name is shown via
+<code>DISPLAYTITLE</code>.
+[[Category:Time tracker templates]]
+</noinclude><includeonly>{{#default_form:Job}}{{#set:
+|Tt name={{{name|}}}
+|Tt customer={{{customer|}}}
+|Tt description={{{description|}}}
+|Tt status={{{status|active}}}
+|Tt estimate={{{estimate|}}}
+}}{{DISPLAYTITLE:{{{name|{{PAGENAME}}}}}}}<div class="tt-header-row"><div class="tt-card tt-entity">
+<div class="tt-facts">
+<div class="tt-fact"><span class="tt-fact-label">Customer</span><span class="tt-fact-value">{{#if:{{{customer|}}}|[[{{{customer}}}]]|—}}</span></div>
+<div class="tt-fact"><span class="tt-fact-label">Status</span><span class="tt-fact-value"><span class="tt-badge tt-badge-{{lc:{{{status|active}}}}}">{{int:timetracker-status-{{lc:{{{status|active}}}}}}}</span></span></div>
+{{#if:{{{estimate|}}}|<div class="tt-fact"><span class="tt-fact-label">Estimate</span><span class="tt-fact-value">{{#timetracker_format_duration:{{{estimate}}}}}</span></div>|}}
+</div>{{#if:{{{description|}}}|<div class="tt-desc">{{{description}}}</div>|}}
+</div>{{#timetracker_jobtimer:{{FULLPAGENAME}}}}</div>
+<h2 class="tt-section">📋 Tasks</h2>
+<div class="tt-jobs-row">{{#timetracker_tile:newtask|{{FULLPAGENAME}}}}{{#timetracker_tasks:{{FULLPAGENAME}}}}</div>
+<h2 class="tt-section">⏱️ Timesheet</h2>
+{{#timetracker_grid:job|{{FULLPAGENAME}}|{{{customer|}}}|{{{name|}}}}}
+{{#timetracker_progress:{{FULLPAGENAME}}|{{{estimate|}}}}}
+[[Category:Jobs]]
+</includeonly>

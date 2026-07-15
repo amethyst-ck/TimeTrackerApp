@@ -1,0 +1,2 @@
+A TimeTracker data property of type [[Has type::Page]]. On a time entry it holds the task worked on (empty means the job's "General" bucket).
+[[Category:Time tracker properties]]

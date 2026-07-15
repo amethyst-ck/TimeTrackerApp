@@ -1,0 +1,4 @@
+{{#titleicon_unicode:📋}}Task records, each stored via [[Template:Task]] and created
+through [[Form:Task]]. A task belongs to a [[:Category:Jobs|job]]; time may be logged against a
+specific task or against the job's "General" bucket.
+[[Category:Time tracker]]

@@ -1,0 +1,20 @@
+<noinclude>{{#titleicon_unicode:📋}}
+This is the '''Task''' form, used to create and edit task records stored via [[Template:Task]].
+[[Category:Time tracker forms]]
+</noinclude><includeonly>{{{info|page name=Task:<unique number;random;9>}}}
+{{{for template|Task}}}
+{| class="formtable"
+|-
+! Job:
+| {{{field|job|hidden}}}<span class="tt-locked-value">{{#if:{{#urlget:Task[job]}}|{{#getdisplaytitle:{{#replace:{{#urlget:Task[job]}}|%3A|:}}}}|{{#getdisplaytitle:{{#show:{{FULLPAGENAME}}|?Tt job|link=none}}}}}}</span>
+|-
+! Name:
+| {{{field|name|mandatory|size=40}}}
+|-
+! Status:
+| {{{field|status|input type=dropdown|values=active,archived|default=active|mandatory}}}
+|}
+{{{end template}}}
+
+{{{standard input|save}}} {{{standard input|cancel}}}
+</includeonly>
