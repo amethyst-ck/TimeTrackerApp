@@ -2,7 +2,7 @@
 # Deploy with: wicker deploy . -i timetracker -n localhost
 apiVersion: wicker-app/v1
 name: time-tracker
-version: 1.0.0
+version: 1.0.1
 description: Track time on jobs and customers as a Canasta-based wiki application
 author: Cindy Cicalese
 license: GPL-2.0-or-later
@@ -30,7 +30,7 @@ extensions:
   - name: TitleIcon
   - name: TimeTracker
     git: https://github.com/amethyst-ck/TimeTracker
-    ref: v1.0.0
+    ref: v1.0.1
 
 settings:
   - path: ./settings/Settings.php
