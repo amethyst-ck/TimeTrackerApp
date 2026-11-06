@@ -2,7 +2,7 @@
 # Deploy with: wicker deploy . -i timetracker -n localhost
 apiVersion: wicker-app/v1
 name: time-tracker
-version: 1.0.2
+version: 1.0.3
 description: Track time on jobs and customers as a Canasta-based wiki application
 author: Cindy Cicalese
 license: GPL-2.0-or-later
